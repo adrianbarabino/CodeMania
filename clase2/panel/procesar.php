@@ -1,5 +1,7 @@
 <?php
 
+require("../configuracion.php");
+require("../conexion.php");
 
 if(isset($_GET['accion'])){
 
@@ -25,7 +27,7 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 			<?php
 
 				// Segun el valor de la variable VALOR mostramos el mensaje acorde.
-			
+
 				echo "<h1>";
 				if($valor == "salir"){
 					echo "Has salido satisfactoriamente";
@@ -57,7 +59,7 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 		<?php
 	}
 
-	if($accion = "ingresar"){
+	if($accion == "ingresar"){
 
 
 		// Verificamos con TRIM de que las cadenas de EMAIL y PASSWORD no tengan ningun espacio vacio al inicio y al final, y que tampoco se encuentren vacías.
@@ -72,7 +74,7 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 			$sql = "SELECT password FROM usuarios WHERE email='".$emailN."'";
 
-			$resultado = $mysqli-<query($sql);
+			$resultado = $mysqli->query($sql);
 
 			if($row = $resultado->fetch_assoc())
 			{
@@ -108,13 +110,13 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 	}
 
-	if($accion = "registrar"){
+	if($accion == "registrar"){
 
 		if(trim($_POST['email']) != "" && trim($_POST['password']) != "" && trim($_POST['nombre']) != ""){
 
 			$sql = "SELECT password FROM usuarios WHERE email='".$emailN."'";
 
-			$resultado = $mysqli-<query($sql);
+			$resultado = $mysqli->query($sql);
 
 			if($row = $resultado->fetch_assoc())
 			{
@@ -142,7 +144,7 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 	}
 
-	if($accion = "salir"){
+	if($accion == "salir"){
 
 
 		setcookie('miMail', "x", time()-3600);
