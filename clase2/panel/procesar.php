@@ -52,8 +52,16 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 				}
 				echo "</h1>";
 
+
+
 			?>
-			
+				<script>
+				function ir_home () {
+					location.href = "index.php";
+				}
+				setTimeout(ir_home, 2000);
+				</SCRIPT>
+
 		</body>
 		</html>
 		<?php
@@ -113,6 +121,9 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 	if($accion == "registrar"){
 
 		if(trim($_POST['email']) != "" && trim($_POST['password']) != "" && trim($_POST['nombre']) != ""){
+
+			$emailN = remover_etiquetas($_POST['email']);
+			$passN = remover_etiquetas($_POST['password']);
 
 			$sql = "SELECT password FROM usuarios WHERE email='".$emailN."'";
 

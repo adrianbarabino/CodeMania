@@ -36,6 +36,21 @@ if($loginOK){
 <body>
 
 
+	<h2>Ingresar</h2>
+	<form action="procesar.php?accion=ingresar" method="POST">
+		<input type="text" name="email" placeholder="Email">
+		<input type="password" name="password" placeholder="Contraseña">
+		<input type="submit" value="Ingresar">
+	</form>
+	
+
+	<h2>Registro</h2>
+	<form action="procesar.php?accion=registrar" method="POST">
+		<input type="text" name="nombre" placeholder="Nombre">
+		<input type="text" name="email" placeholder="Email">
+		<input type="password" name="password" placeholder="Contraseña">
+		<input type="submit" value="Registrar">
+	</form>
 	
 </body>
 </html>
