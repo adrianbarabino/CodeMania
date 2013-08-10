@@ -24,9 +24,31 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 		<body>
 			<?php
 
+				// Segun el valor de la variable VALOR mostramos el mensaje acorde.
+			
+				echo "<h1>";
 				if($valor == "salir"){
-					echo "<h1>Has salido satisfactoriamente</h1>";
+					echo "Has salido satisfactoriamente";
 				}
+				if($valor == "ingreso_no_existe"){
+					echo "El email no existe en la base de datos";
+				}
+				if($valor == "ingreso_fail_pwd"){
+					echo "Contraseña Incorrecta";
+				}
+				if($valor == "ingreso_ok"){
+					echo "Has ingresado satisfactoriamente";
+				}
+				if($valor == "registro_duplicado"){
+					echo "Ya hay otro usuario con ese email";
+				}
+				if($valor == "registro_ok"){
+					echo "Te registraste satisfactoriamente";
+				}
+				if($valor == "campos_vacios"){
+					echo "No llenaste todos los campos";
+				}
+				echo "</h1>";
 
 			?>
 			
@@ -80,6 +102,8 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 
 
+		}else{
+			mostrar_mensaje("campos_vacios");
 		}
 
 	}
@@ -88,6 +112,32 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 		if(trim($_POST['email']) != "" && trim($_POST['password']) != "" && trim($_POST['nombre']) != ""){
 
+			$sql = "SELECT password FROM usuarios WHERE email='".$emailN."'";
+
+			$resultado = $mysqli-<query($sql);
+
+			if($row = $resultado->fetch_assoc())
+			{
+
+				mostrar_mensaje("registro_duplicado");
+			}
+			else
+			{
+				$sql = "INSERT INTO usuarios (nombre,password,rango,email, ultima_ip) VALUES (";
+				$sql .= "'".remover_etiquetas($_POST["nombre"])."'";
+				$sql .= ",'".md5(md5(remover_etiquetas($_POST["password"])))."'";
+				$sql .= ",'1'"; // 1 is the rank of Normal User
+				$sql .= ",'".remover_etiquetas($_POST["email"])."'";
+				$sql .= ",'".$_SERVER['REMOTE_ADDR']."'";
+				$sql .= ")";
+
+				$resultado = $mysqli->query($sql);
+
+				mostrar_mensaje("registro_ok");
+			}
+
+		}else{
+			mostrar_mensaje("campos_vacios");
 		}
 
 	}
