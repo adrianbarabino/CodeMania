@@ -47,13 +47,48 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 			$passN = md5(md5(remover_etiquetas($_POST['password']))); 
 
 			// Removemos etiquetas y limpiamos las cadenas de EMAIL y PASSWORD, y ciframos la contraseña con MD5 DOBLE.
-			
+
+			$sql = "SELECT password FROM usuarios WHERE email='".$emailN."'";
+
+			$resultado = $mysqli-<query($sql);
+
+			if($row = $resultado->fetch_assoc())
+			{
+				if($row['password'] == $passN)
+				{
+					// Creamos la cookie ya que el usuario se ha logueado satisfactoriamente...
+
+					setcookie("miMail", $emailN, time()+7776000);
+					setcookie("miPass", $passN, time()+7776000);
+
+					mostrar_mensaje("ingreso_ok");
+
+				}
+				else
+				{
+					// SI la contraseña no coincide con el email del usuario, le decimos que puso mal su Contraseña...
+
+					mostrar_mensaje("ingreso_fail_pwd");
+				}
+			}
+			else
+			{
+				// Si el usuario no existe en la base de datos, le decimos que no existe D:
+
+				mostrar_mensaje("ingreso_no_existe");
+			}
+
+
 
 		}
 
 	}
 
 	if($accion = "registrar"){
+
+		if(trim($_POST['email']) != "" && trim($_POST['password']) != "" && trim($_POST['nombre']) != ""){
+
+		}
 
 	}
 
