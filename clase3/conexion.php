@@ -13,7 +13,7 @@ if($mysqli->connect_errno){
 	// echo "<h1>Aprendi a conectar</h1>";
 }
 
-public function remover_etiquetas($mensaje)
+function remover_etiquetas($mensaje)
 {
 	$mensaje = str_replace("<","<",$mensaje);
 	$mensaje = str_replace(">",">",$mensaje);
@@ -23,4 +23,3 @@ public function remover_etiquetas($mensaje)
 }
 
 ?>
-
