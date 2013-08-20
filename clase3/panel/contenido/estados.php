@@ -1,4 +1,4 @@
-<a href="./index.php?pagina=formularios&accion=crear&tabla=categorias" class="crear-nuevo">Crear nuevo</a>
+<a href="./index.php?pagina=formularios&accion=crear&tabla=estados" class="crear-nuevo">Crear nuevo</a>
 
 <table>
 	<thead>
@@ -14,7 +14,7 @@
 
 	// Consultamos los productos a nuestra base de datos
 
-	$consulta = "SELECT * FROM categorias ORDER BY id DESC";
+	$consulta = "SELECT * FROM estados ORDER BY id DESC";
 
 
 if($resultado = $mysqli->query($consulta)){
@@ -26,8 +26,8 @@ if($resultado = $mysqli->query($consulta)){
 				<td><?php echo $item["nombre"]; ?></td>
 
 				<td>
-					<a href="./index.php?pagina=formularios&accion=editar&tabla=categorias&id=<?php echo $item['id']; ?>">Editar</a>
-					<a href="./acciones.php?accion=borrar&tabla=categorias&id=<?php echo $item['id']; ?>">Borrar</a>
+					<a href="./index.php?pagina=formularios&accion=editar&tabla=estados&id=<?php echo $item['id']; ?>">Editar</a>
+					<a href="./acciones.php?accion=borrar&tabla=estados&id=<?php echo $item['id']; ?>">Borrar</a>
 
 				</td>
 			</tr>

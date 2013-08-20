@@ -1,3 +1,6 @@
+
+<a href="./index.php?pagina=formularios&accion=crear&tabla=usuarios" class="crear-nuevo">Crear nuevo</a>
+
 <table>
 	<thead>
 		<tr>
@@ -31,7 +34,7 @@ if($resultado = $mysqli->query($consulta)){
 				<td><?php echo $item["password"]; ?></td>
 				<td><?php echo $item["ultima_ip"]; ?></td>
 				<td>
-					<a href="./acciones.php?accion=editar&tabla=usuarios&id=<?php echo $item['id']; ?>">Editar</a>
+					<a href="./index.php?pagina=formularios&accion=editar&tabla=usuarios&id=<?php echo $item['id']; ?>">Editar</a>
 					<a href="./acciones.php?accion=borrar&tabla=usuarios&id=<?php echo $item['id']; ?>">Borrar</a>
 
 				</td>
