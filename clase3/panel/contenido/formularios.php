@@ -30,11 +30,11 @@ if(!isset($tabla)){
 		$id_categoria = $resultado['id_categoria'];
 
 		}else{
-		$nombre = 'nombre';
-		$descripcion = 'descripcion';
-		$fecha_ingreso = 'fecha_ingreso';
-		$disponibles = 'disponibles';
-		$precio = 'precio';
+		$nombre = '';
+		$descripcion = '';
+		$fecha_ingreso = date("Y-m-d H:i:s");
+		$disponibles = '';
+		$precio = '';
 		$id_categoria = '0';
 
 		}
@@ -51,7 +51,7 @@ if(!isset($tabla)){
 
 
 		}else{
-		$nombre = 'nombre';
+		$nombre = '';
 
 
 		}
@@ -68,7 +68,7 @@ if(!isset($tabla)){
 
 
 		}else{
-		$nombre = 'nombre';
+		$nombre = '';
 
 
 		}
@@ -85,7 +85,7 @@ if(!isset($tabla)){
 
 
 		}else{
-		$nombre = 'nombre';
+		$nombre = '';
 
 
 		}
@@ -105,15 +105,13 @@ if(!isset($tabla)){
 		// Entonces si no editamos este campo, no se va a cambiar la contraseña del usuario.
 
 		$password = "no-editar";
-		$ultima_ip = $resultado['ultima_ip'];
 
 
 		}else{
-		$nombre = 'nombre';
-		$email = 'email';
-		$rango = 'rango';
-		$password = 'password';
-		$ultima_ip = 'ultima_ip';
+		$nombre = '';
+		$email = '';
+		$rango = '';
+		$password = '';
 
 
 		}
@@ -135,12 +133,12 @@ if(!isset($tabla)){
 
 		}else{
 
-		$id_usuario = 'id_usuario';
-		$id_item = 'id_item';
-		$tipo_pago = 'tipo_pago';
-		$id_estado = 'id_estado';
-		$fecha = 'fecha';
-		$descripcion = 'descripcion';
+		$id_usuario = '';
+		$id_item = '';
+		$tipo_pago = '';
+		$id_estado = '';
+		$fecha = date("Y-m-d H:i:s");
+		$descripcion = '';
 
 
 		}
@@ -187,11 +185,11 @@ if($resultado_categorias = $mysqli->query($consulta_categorias)){
 
 			</select>
 			<br><label for="fecha_ingreso">Fecha Ingresado:</label>
-			<input name="fecha_ingreso" id="fecha_ingreso" type="text"value="<?php echo $fecha_ingreso; ?>">
+			<input name="fecha_ingreso" id="fecha_ingreso" type="text" value="<?php echo $fecha_ingreso; ?>">
 			<br><label for="disponibles">Disponibles:</label>
-			<input name="disponibles" id="disponibles" type="text" value="<?php echo $disponibles; ?>">
+			<input name="disponibles" id="disponibles" placeholder="Ejemplo: 84" type="text" value="<?php echo $disponibles; ?>">
 			<br><label for="precio">Precio:</label>
-			<input name="precio" id="precio" type="text"value="<?php echo $precio; ?>">
+			<input name="precio" placeholder="Ejemplo: 10.99" id="precio" type="text"value="<?php echo $precio; ?>">
 			<input name="enviar" type="submit" value="enviar">
 			<input name="limpiar" type="button" value="limpiar">
 		</form>

@@ -52,9 +52,8 @@ function crear_tabla($tabla, $campos)
 								$email = $campos['email'];
 								$rango = $campos['rango'];
 								$password   = md5(md5($campos['password']));
-								$ultima_ip     = $campos['ultima_ip'];
 
-								$create_query = "insert into $tabla (nombre,password,email,rango,id_estado) VALUES ('$nombre','$password','$email','$rango','$id_estado')";
+								$create_query = "insert into $tabla (nombre,password,email,rango) VALUES ('$nombre','$password','$email','$rango')";
 								
 					break;
 					case 'categorias':
@@ -71,6 +70,7 @@ function crear_tabla($tabla, $campos)
 					break;
 
 				}
+				print_r($create_query);
 				$mysqli->query($create_query);
 }
 function editar_tabla($tabla, $id, $campos)

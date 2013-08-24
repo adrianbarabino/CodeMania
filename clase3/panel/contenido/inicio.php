@@ -1,5 +1,4 @@
 
 
-<h1>Hola <?php echo $userName; ?></h1>
+<h1 class="saludo">Hola <?php echo $userName; ?> <small>bienvenido de nuevo al panel de administración de <?php echo $config['titulo_web']; ?></small></h1>
 
-<a href="procesar.php?accion=salir">Salir del panel</a>

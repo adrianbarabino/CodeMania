@@ -17,19 +17,12 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 
 	function mostrar_mensaje($valor)
 	{
-		?>
-		<!doctype html>
-		<html lang="es">
-		<head>
-			<meta charset="UTF-8">
-			<title>Procesando datos</title>
-		</head>
-		<body>
-			<?php
 
+		$titulo = "Procesando datos";
+		require("./cabecera.php");
 				// Segun el valor de la variable VALOR mostramos el mensaje acorde.
 
-				echo "<h1>";
+				echo '<h1><i class="icon-info-sign icon-large"></i> ';
 				switch($valor){
 
 				case "salir":
@@ -67,7 +60,8 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir"){
 					location.href = "index.php";
 				}
 				setTimeout(ir_home, 2000);
-				</SCRIPT>
+				</script>
+			</section>
 
 		</body>
 		</html>
