@@ -1,0 +1,48 @@
+#form-inicio{
+    width: 50%;  margin: 1em auto;  background: #fff;  color: #16a!important;
+    padding: 0.5em;
+    text-align: center;
+}
+#form-inicio h2 {
+    text-align: center;
+    background: #16a;
+    margin: 0 0 0.5em 0;
+    color:white;
+    padding: 0.3em;
+}
+#form-inicio input{
+    display: block;
+    width: 90%;
+    border: 3px solid rgba(0, 0, 0, 0.41) !important;
+    margin: 0.5em 0;
+    display: inline-block;
+}
+#form-inicio form{
+    text-align: center;
+}
+#form-inicio input[type="submit"]{
+    width: 97%;
+    font-weight: 200;
+    color: white;
+    background: #444;
+    border-color: #444!important;
+    cursor: pointer;
+}
+
+
+
+#form-inicio h2 span.chico{
+	font-size:0.6em;
+	color:#ddd;
+	cursor: pointer;
+}
+#form-inicio h2 span.activo{
+	font-size:1em;
+	cursor: pointer;
+}
+span.chico:hover{
+	color: #fff;
+}
+#form-inicio h2 span{
+	transition: all 0.3s ease-in-out;
+}
