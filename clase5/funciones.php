@@ -20,6 +20,10 @@ $cadena = substr($cadena, 0, $puntodecorte) . $puntos;
 return $cadena;
  
 }
+function verificar_numeros($valor)
+{
+    return preg_match('/^([0-9_]*)$/i', $valor);
+}
 
 function traducirMes($mes){
 

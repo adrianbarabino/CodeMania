@@ -26,7 +26,7 @@ if($resultado_item = $mysqli->query($consulta_item)){
 				<img src="" alt="">
 			</figure>
 			<h2><a href="./?pagina=item&id=<?php echo $item['id']; ?>"><?php echo $item['nombre']; ?></a></h2>
-			<h4><a href="./?pagina=categorias&id=<?php echo $item['id_categoria']; ?>"><?php echo $item['categoria']; ?></a></h4>
+			<h4><a href="./?pagina=categorias&id=<?php echo $item['id_categoria']; ?>"><?php echo $categoria['nombre']; ?></a></h4>
 			<p class="descripcion">
 				<?php echo cortar_palabras(strip_tags($item['descripcion']), 140, " ", "..."); ?>
 			</p>

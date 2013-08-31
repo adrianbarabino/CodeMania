@@ -24,19 +24,7 @@ function calcular_total($consulta_where)
 
 return $precio;
 }
-?>
-<table id="listar_carrito">
-	<thead>
-		<tr>
-			<td>Nombre</td>
-			<td>Cantidad</td>
-			<td>Precio/unidad</td>
-			<td>Precio total</td>
-			<td>Accion</td>
-		</tr>
-	</thead>
-	<tbody>
-<?php
+
 	
 	if(is_array($_SESSION['carrito'])){
 		if(count($_SESSION['carrito']) > 1){
@@ -66,6 +54,20 @@ return $precio;
 		}
 	}
 if(!$sin_carrito == true){
+?>
+<table id="listar_carrito">
+	<thead>
+		<tr>
+			<td>Nombre</td>
+			<td>Cantidad</td>
+			<td>Precio/unidad</td>
+			<td>Precio total</td>
+			<td>Accion</td>
+		</tr>
+	</thead>
+	<tbody>
+<?php
+
 
 
 	$consulta = "SELECT id, nombre, precio FROM item".$consulta_where;

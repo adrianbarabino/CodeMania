@@ -2,6 +2,8 @@
 session_start();
 require("./configuracion.php");
 require("./conexion.php");
+require("./funciones.php");
+
 $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
 
 if(isset($_GET['accion'])){
@@ -33,6 +35,9 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir" || $acc
 				break;
 				case "carrito_eliminado":
 					echo "Elemento eliminado del carrito";
+				break;
+				case "cantidad_invalida":
+					echo "Cantidad Inválida";
 				break;
 				case "cantidad_actualizada":
 					echo "Elemento actualizado en el carrito";
@@ -122,9 +127,27 @@ if($accion == "ingresar" || $accion == "registrar" || $accion == "salir" || $acc
 	if($accion == "carrito"){
 		if(isset($_GET['item'])){
 			// verificamos la cantidad que eligió el usuario
-			if(isset($_GET['cantidad'])){
 
-				$cantidad = $_GET['cantidad'];
+			if(isset($_GET['cantidad'])){
+				if(verificar_numeros($_GET['cantidad'])){
+
+					$consulta = "SELECT disponibles FROM item WHERE id = ".$item;
+					if($resultado = $mysqli->query($consulta)){
+						while ($item = $resultado->fetch_array()) {
+							$item_disponibles = $item['disponibles'];
+						}
+					}		
+					if($_GET['cantidad'] > $item_disponibles){
+						mostrar_mensaje("cantidad_invalida");
+						die();
+					}else{
+						$cantidad = $_GET['cantidad'];
+					}
+				}else{
+					mostrar_mensaje("parametros_incorrectos");
+					// Usamos DIE para que se deje de ejecutar la página.
+					die();					
+				}
 			}else{
 				$cantidad = "1";
 			}

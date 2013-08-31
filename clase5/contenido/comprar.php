@@ -13,14 +13,16 @@ $consulta = "SELECT I.*, C.nombre as categoria FROM item I INNER JOIN categorias
 if($resultado = $mysqli->query($consulta)){
 	while ($item = $resultado->fetch_array()) {
 		$nombre_item = $item['nombre'];
+		$item_disponibles = $item['disponibles'];
 	}
 }
 ?>
 	<h2>Compra del artículo <?php echo $nombre_item; ?></h2>
 
 	<form action="./procesar.php">
+		<span>Disponibles: <?php echo $item_disponibles; ?></span><br>
 		<label for="cantidad">Cantidad de artículos: </label>
-		<input type="text" name="cantidad" id="cantidad" placeholder="Ej: 2">
+		<input name="cantidad" type="number" min="1" max="<?php echo $item_disponibles; ?>" step="1" value="1">
 		<input type="hidden" value="carrito" name="accion" id="accion">
 		<input type="hidden" value="./?pagina=carrito" name="callback" id="callback">
 		<input type="hidden" value="<?php echo $id; ?>" name="item" id="item">

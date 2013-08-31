@@ -6,10 +6,12 @@
 	</section>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="./jquery.numeric.js"></script>
 
 	<script>
 	$(document).on("ready", iniciar);
 	function iniciar (argument) {
+		$("input[name=cantidad]").numeric({ decimal: false, negative: false }, function() { this.value = ""; this.focus(); });
 
 		$(document).on("click", "#form-inicio span.chico", function () {
 	 		// Cuando hagamos click en SPAN con clase "chico" hacemos lo siguiente...
