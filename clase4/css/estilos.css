@@ -32,17 +32,57 @@
 
 
 #form-inicio h2 span.chico{
-	font-size:0.6em;
-	color:#ddd;
-	cursor: pointer;
+    font-size:0.6em;
+    color:#ddd;
+    cursor: pointer;
 }
 #form-inicio h2 span.activo{
-	font-size:1em;
-	cursor: pointer;
+    font-size:1em;
+    cursor: pointer;
 }
 span.chico:hover{
-	color: #fff;
+    color: #fff;
 }
 #form-inicio h2 span{
-	transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+body {
+    background: #16a;
+    color: #222;
+    font-size: 16px;
+}
+
+
+a{
+    color:#222;
+}
+
+#contenedor {
+    max-width: 960px;  width: 100%;  margin: 0 auto;
+    background: #fff; color:#222;
+    padding:1em ;
+}
+#contenedor > nav{
+    background: #16a;
+    color:white;
+}
+#contenedor > nav ul {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+#contenedor > nav ul li {
+    display: inline-block;
+    padding: 1em 2em;
+}
+#contenedor > nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+#miembros {
+    padding: 1em 2em;
+}
+#miembros a {
+    color: white;
 }
